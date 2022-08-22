@@ -14,7 +14,8 @@ birthday = os.environ['BIRTHDAY']
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
+user_id_ender = os.environ["USER_ID_ENDER"]
+user_id_lxs = os.environ["USER_ID_LXS"]
 template_id = os.environ["TEMPLATE_ID"]
 
 def get_weather_high():
@@ -62,5 +63,6 @@ wea, temperature_low = get_weather_low()
 temperature_high = get_weather_high()
 temperature_now = get_weather_now()
 data = {"weather":{"value":wea},"temperature_low":{"value":temperature_low},"temperature_high":{"value":temperature_high},"temperature_now":{"value":temperature_now},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
-res = wm.send_template(user_id, template_id, data)
+res = wm.send_template(user_id_ender, template_id, data)
+res = wm.send_template(user_id_lxs, template_id, data)
 print(res)

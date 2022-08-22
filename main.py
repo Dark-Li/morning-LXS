@@ -21,8 +21,8 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather_low():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
-  weather_low = res['data']['list'][0]
-  return weather_low['weather'], math.floor(weather_low['low'])
+  weather = res['data']['list'][0]
+  return weather['weather'], math.floor(weather['low'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
